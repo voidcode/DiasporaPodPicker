@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DIASPORA*-podpicker</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="podpicker_h1">Podpicker.</string>
+    <string name="podspicker_text_currentpod">Find your pod.</string>
+  	<string name="main_btn_setpod_title">Use this pod</string>
+  	<string name="main_title">Choose your DIASPORA*-Pod.</string>
+   
+  	<string name="podsettings_h1">Settings.</string>
+    <string name="podsettings_text_currentpod">Find your pod.</string>
+    <string name="podsettings_dialog_title">Pick, an DIASPORA*-Pod.</string>
+	<string name="podsettings_dialog_text">You have to choose a pod before you can login to Diaspora.\nWith this app you wil only be able to login to pods that use https.\nAll pods showing in the list are from podupti.me and use https.</string>     
+	<string name="podsettings_button_save">Use this pod</string>
+     
+         
+     <string name="podsettings_button_close">OK</string>
+</resources>

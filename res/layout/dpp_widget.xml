@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_ll"
+    android:layout_height="56dp"
+    android:background="@drawable/widget_bg"
+    android:layout_width="298dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+            
+        <ImageButton
+            android:id="@+id/widget_ib_openwww"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="6dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_openwww" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text=".. DIASPORA*-podpicker .."
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#c7c7c7"
+            android:textSize="10sp" />
+
+        <ImageButton
+            android:id="@+id/widget_ib_podsettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/picker" />
+
+    </LinearLayout>
+</LinearLayout>

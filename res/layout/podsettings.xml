@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#222222"
+    tools:context=".MainActivity" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/topmenu_repeat" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:padding="4dp"
+                android:text="@string/main_title"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#ffffff" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/editText_currentpod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:ems="10" >
+
+                <requestFocus />
+            </EditText>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/settings_set_currentpod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:onClick="set_currentpod_click"
+                android:text="@string/main_btn_setpod_title" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" >
+
+            <LinearLayout
+                xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/ll_joblist_admob"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="bottom"
+                android:orientation="vertical" >
+
+                <com.google.ads.AdView
+                    android:id="@+id/adview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="a150eed8a2a1ba0"
+                    ads:loadAdOnCreate="true" >
+                </com.google.ads.AdView>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ListView
+                android:id="@+id/listView_poduptime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#222222"
+                android:cacheColorHint="#222222" >
+
+            </ListView>
+
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>
