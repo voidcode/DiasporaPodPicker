@@ -37,7 +37,7 @@
         </activity>
          <activity
             android:theme="@android:style/Theme.Dialog"
-            android:name=".SetWidgetLuncherBtn"
+            android:name="com.voidcode.diaspora_podpicker.SetLuncherActivity"
             android:configChanges="orientation">
         </activity>
     </application>

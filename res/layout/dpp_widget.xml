@@ -16,31 +16,32 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="6dp"
+            android:layout_marginLeft="15dp"
             android:background="@null"
-            android:scaleType="fitXY"
-            android:src="@drawable/btn_openwww" />
+            android:scaleType="center"
+            android:src="@drawable/stream" />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text=".. DIASPORA*-podpicker .."
+            android:text="DIASPORA*-podpicker . . ."
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#c7c7c7"
+            android:textColor="#ffffff"
             android:textSize="10sp" />
 
         <ImageButton
             android:id="@+id/widget_ib_podsettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp"
             android:background="@null"
-            android:scaleType="fitXY"
-            android:src="@drawable/picker" />
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_menu_preferences" />
 
     </LinearLayout>
 </LinearLayout>

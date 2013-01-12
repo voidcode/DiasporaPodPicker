@@ -18,12 +18,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 public class getPodlistTask extends AsyncTask<Void,  Void, String[]> {
 	protected Context context;
 	private ProgressDialog dialog;
+	private SharedPreferences prefs;
 	
 	public getPodlistTask(Context c)
 	{
@@ -33,10 +35,11 @@ public class getPodlistTask extends AsyncTask<Void,  Void, String[]> {
 	protected void onPreExecute() {
 		super.onPreExecute();
 		dialog = new ProgressDialog(context);
-        dialog.setMessage("Gets podlist from poduptime.me ...");
+        dialog.setMessage("Gets pods from poduptime.me ...");
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.show();
+        prefs = context.getSharedPreferences("settings",0);  
 	}
 	protected void onPostExecute(String[] pods) {	 
 		dialog.dismiss();
@@ -81,10 +84,18 @@ public class getPodlistTask extends AsyncTask<Void,  Void, String[]> {
 				for (int i = 0; i < jr.length(); i++) {
 					JSONObject jo = jr.getJSONObject(i);
 					String secure=jo.getString("secure");
-					if(secure.equals("true"))
-						list.add(jo.getString("domain"));				
+					
+					if(prefs.getInt("showAllPods", 0)==1)//add all-pods to the list
+					{
+						list.add(jo.getString("domain"));
+										
 					}
-
+					else//add only https-pods
+					{
+						if(secure.equals("true"))
+							list.add(jo.getString("domain"));	
+					}
+				}
 			}catch (Exception e) {
 				//TODO Handle Parsing errors here	
 				e.printStackTrace();

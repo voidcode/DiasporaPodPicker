@@ -18,13 +18,15 @@ import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
-//import android.view.Menu;
+import android.view.Menu;
+import android.view.MenuItem;
 //import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,10 +44,15 @@ public class PodSettingsActivity extends Activity {
 	private EditText editTextCurrentpod;
 	JSONArray jsonArray;
 	private AdView adView;
+	private SharedPreferences prefs;
+	private boolean OnlyHttpsPods = true;
+	private String prefix;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.podsettings);
+		prefs = getSharedPreferences("settings",0);
+		
 				try {
 					//load pods from poduptime.me as a AsyncTask					
 					lvPods_arr = new getPodlistTask(this).execute().get();
@@ -64,8 +71,8 @@ public class PodSettingsActivity extends Activity {
 			        if(preferences.getBoolean("has_show_dialog", false) == false)
 			        {
 				        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
-						alert.setTitle(R.string.podsettings_dialog_title);
-						alert.setMessage(R.string.podsettings_dialog_text);
+					 	alert.setTitle(R.string.podsettings_dialog_title);
+					 	alert.setMessage(R.string.podsettings_dialog_text);
 						alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 							}
@@ -122,11 +129,19 @@ public class PodSettingsActivity extends Activity {
         // the attribute android:id="@+id/podsettings"
 	    LinearLayout layout = (LinearLayout)findViewById(R.id.ll_joblist_admob);
 
-	    // Add the adView to it
+	    
+	    //TODO: REMOVE ME
+		// Initiate a generic request to load it with an ad
+	    AdRequest request = new AdRequest();
+	    request.addTestDevice(AdRequest.TEST_EMULATOR);               // Emulator
+	    request.addTestDevice("a150eed8a2a1ba0");                      // Test Android Device
+		adView.loadAd(request);
+	    
+		
+		// Add the adView to it
 	    layout.addView(adView);
 
-		// Initiate a generic request to load it with an ad
-		adView.loadAd(new AdRequest());
+	    
     }
 	public void fillListview(String _lvPods_arr[])
 	{
@@ -147,7 +162,7 @@ public class PodSettingsActivity extends Activity {
 		super.onConfigurationChanged(newConfig);
 	} 
 	// Handle the Back button
-    @Override
+   /* @Override
     public boolean onKeyDown(int keyCode, KeyEvent msg){
         if((keyCode == KeyEvent.KEYCODE_BACK))
         {
@@ -156,7 +171,7 @@ public class PodSettingsActivity extends Activity {
         }
         else
             return true;
-    }
+    }*/
     public void saveCurrentpodAndUpdateWidget()
     {
     	// Save the new currentpod
@@ -180,10 +195,14 @@ public class PodSettingsActivity extends Activity {
 		if(new_currentpod.length()>0)
 		{
 			saveCurrentpodAndUpdateWidget();
-			
-			//open browser with, current Diaspora-pod
+			//open browser with, current Diaspora-pod and suffix
 			Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://"+new_currentpod));
+			
+			prefix="https://";
+			if(prefs.getInt("showAllPods", 0)==1)
+				prefix="http://";
+			
+            i.setData(Uri.parse(prefix+new_currentpod+prefs.getString("suffix", "/stream")));
             startActivity(i);
 		}
 		else
@@ -191,20 +210,26 @@ public class PodSettingsActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "You need to choose a pod", Toast.LENGTH_LONG).show();
 		}
 	}
-	/*
 	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_settings, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_setluncher:
-            	startActivity(new Intent(this, SetWidgetLuncherBtn.class));
-            	return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_podsettings, menu);
+		return true;
+	}
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+	    switch (item.getItemId()) {
+	    	case R.id.menu_settings_setluncher:
+	        	startActivity(new Intent(this, SetLuncherActivity.class));
+	        break;
+	    	case R.id.menu_settings_onlyhttpspods:
+				Editor editor = prefs.edit();
+				editor.putInt("showAllPods", 1);
+				editor.commit();
+			    this.finish();
+			    startActivity(new Intent(this, PodSettingsActivity.class));
+	        break;
+	    }
+	    return super.onOptionsItemSelected(item);
+	}
 }

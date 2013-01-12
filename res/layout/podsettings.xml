@@ -79,7 +79,7 @@
                 android:id="@+id/ll_joblist_admob"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:gravity="bottom"
+                android:gravity="center"
                 android:orientation="vertical" >
 
                 <com.google.ads.AdView
@@ -88,7 +88,8 @@
                     android:layout_height="50dp"
                     ads:adSize="BANNER"
                     ads:adUnitId="a150eed8a2a1ba0"
-                    ads:loadAdOnCreate="true" >
+                    ads:loadAdOnCreate="true"
+                    ads:testDevices = "TEST_EMULATOR, TEST_DEVICE_ID" >
                 </com.google.ads.AdView>
             </LinearLayout>
         </TableRow>
