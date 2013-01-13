@@ -33,16 +33,16 @@ public class getPodlistTask extends AsyncTask<Void,  Void, String[]> {
 	}
 	@Override
 	protected void onPreExecute() {
-		super.onPreExecute();
-		dialog = new ProgressDialog(context);
+	    dialog = new ProgressDialog(context);
         dialog.setMessage("Gets pods from poduptime.me ...");
-        dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.show();
         prefs = context.getSharedPreferences("settings",0);  
 	}
-	protected void onPostExecute(String[] pods) {	 
-		dialog.dismiss();
+	protected void onPostExecute(String[] result) {
+	    if (dialog.isShowing())
+	        dialog.dismiss();
+	    super.onPostExecute(result);
 	}
 	@Override
 	protected String[] doInBackground(Void... params) {

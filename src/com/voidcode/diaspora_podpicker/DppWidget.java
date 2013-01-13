@@ -44,8 +44,8 @@ public class DppWidget extends AppWidgetProvider {
            
             //set luncher-icon base on switch-case statemet
             Bitmap b=BitmapFactory.decodeResource(context.getResources(),
-            		prefs.getInt("luncherR", R.drawable.ic_launcher));
-            views.setBitmap(R.id.widget_ib_openwww, "setImageBitmap", Bitmap.createScaledBitmap(b, prefs.getInt("luncherWidth", 16), prefs.getInt("luncherHeigth", 16), false));//resize bitmap default 16x16
+            		prefs.getInt("luncherR", R.drawable.stream));//R.drawable.stream is the default set widget luncher icon
+            views.setBitmap(R.id.widget_ib_openwww, "setImageBitmap", Bitmap.createScaledBitmap(b, prefs.getInt("luncherWidth", 40), prefs.getInt("luncherHeigth", 40), false));//resize bitmap default 16x16
             
             views.setOnClickPendingIntent(R.id.widget_ib_podsettings, podsettings_pendingIntent);          
             

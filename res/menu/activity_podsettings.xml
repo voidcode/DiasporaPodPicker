@@ -1,10 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/menu_settings_setluncher"
+        android:id="@+id/menu_settings_configluncher"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
-        android:title="@string/menu_settings_setluncher"/>
+        android:title="@string/menu_settings_configluncher"/>
 	<item
         android:id="@+id/menu_settings_onlyhttpspods"
         android:orderInCategory="100"

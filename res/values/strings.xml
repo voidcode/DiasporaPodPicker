@@ -16,6 +16,8 @@
      
          
      <string name="podsettings_button_close">OK</string>
-     <string name="menu_settings_setluncher">Configluncher</string>
+     <string name="menu_settings_configluncher">Configluncher</string>
      <string name="menu_settings_onlyhttpspods">Show all-pods</string>
+     
+     <string name="color_white">#000000</string>
 </resources>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -17,4 +17,12 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    
+    <!-- curstom dialog theme -->
+    <style name="InfoDialog" parent="android:Theme.Dialog">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#222222</item>
+        <item name="android:typeface">normal</item>
+    </style>
+    
 </resources>
