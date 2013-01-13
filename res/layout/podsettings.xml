@@ -81,7 +81,6 @@
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:orientation="vertical" >
-<!-- 
                 <com.google.ads.AdView
                     android:id="@+id/adview"
                     android:layout_width="wrap_content"
@@ -90,7 +89,6 @@
                     ads:adUnitId="a150eed8a2a1ba0"
                     ads:loadAdOnCreate="true">
                 </com.google.ads.AdView>
--->
             </LinearLayout>
         </TableRow>
 

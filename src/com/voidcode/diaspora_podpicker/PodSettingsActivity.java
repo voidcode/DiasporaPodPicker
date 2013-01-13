@@ -36,6 +36,7 @@ import android.view.Window;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -81,14 +82,21 @@ public class PodSettingsActivity extends Activity {
 			        //check if user have be get the dialog info box
 			        if(preferences.getBoolean("has_show_dialog", false) == false)
 			        {	
-				        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
-					 	alert.setTitle(R.string.podsettings_dialog_title);
-					 	alert.setMessage(R.string.podsettings_dialog_text);
-						alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
+			        	//info dialog on first-app-run
+				        final Dialog infoDialog = new Dialog(new ContextThemeWrapper(this, R.style.InfoDialog));
+				        infoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+				        infoDialog.setContentView(R.layout.info_dialog);
+				        infoDialog.setCancelable(true);
+				        Button btnClose = (Button) infoDialog.findViewById(R.id.infodialog_btn_close);
+				        btnClose.setOnClickListener(new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								if(infoDialog.isShowing())
+									infoDialog.dismiss();
 							}
 						});
-						alert.show();
+				        infoDialog.show();
+				        
 						//this ensure the user only see the dialogbox ones
 						SharedPreferences.Editor editor = preferences.edit();
 						editor.putBoolean("has_show_dialog", true);
@@ -134,20 +142,18 @@ public class PodSettingsActivity extends Activity {
 				
 		//AdMobil------------------
 		// Create the adView
-		//adView = new AdView(this, AdSize.BANNER, "a150eed8a2a1ba0");
+		adView = new AdView(this, AdSize.BANNER, "a150eed8a2a1ba0");
 
 	    // Lookup your LinearLayout assuming it's been given
-        // the attribute android:id="@+id/podsettings"
-	    //LinearLayout layout = (LinearLayout)findViewById(R.id.ll_joblist_admob);
+        // the attribute android:id="@+id/ll_joblist_admob"
+	    LinearLayout layout = (LinearLayout)findViewById(R.id.ll_joblist_admob);
 
-	    
-	    //TODO: REMOVE ME
 		// Initiate a generic request to load it with an ad
-		//adView.loadAd(new AdRequest());
+		adView.loadAd(new AdRequest());
 	    
 		
 		// Add the adView to it
-	    //layout.addView(adView);
+	    layout.addView(adView);
     }
 	public void fillListview(String _lvPods_arr[])
 	{
@@ -239,7 +245,7 @@ public class PodSettingsActivity extends Activity {
 	    switch (item.getItemId()) {
 	    	case R.id.menu_settings_configluncher:
 	    		//setup dialog
-	    		dialog = new Dialog(new ContextThemeWrapper(this, R.style.InfoDialog));
+	    		dialog = new Dialog(new ContextThemeWrapper(this, R.style.ConfigLuncherDialog));
 	        	dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
 	        	dialog.setTitle(R.string.menu_settings_configluncher);
 	        	dialog.setContentView(R.layout.configluncher_dialog);

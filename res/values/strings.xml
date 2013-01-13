@@ -10,8 +10,8 @@
    
   	<string name="podsettings_h1">Settings.</string>
     <string name="podsettings_text_currentpod">Find your pod.</string>
-    <string name="podsettings_dialog_title">Pick, an DIASPORA*-Pod.</string>
-	<string name="podsettings_dialog_text">You have to choose a pod before you can login to the diaspora network.\nAll pods showing in the list are from podupti.me</string>     
+    <string name="infodialog_title">Pick, an DIASPORA*-Pod.</string>
+	<string name="infodialog_text">Diaspora is the Privacy Aware Open Source Social Network that puts you in control of your information.</string>     
 	<string name="podsettings_button_save">Use this pod</string>
      
          

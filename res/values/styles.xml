@@ -17,11 +17,17 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    
-    <!-- curstom dialog theme -->
-    <style name="InfoDialog" parent="android:Theme.Dialog">
+    <!-- config-luncher dialog theme -->
+    <style name="ConfigLuncherDialog" parent="android:Theme.Dialog">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:background">#222222</item>
+        <item name="android:typeface">normal</item>
+    </style>
+    
+    <!-- info dialog theme -->
+    <style name="InfoDialog" parent="android:Theme.Dialog">
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">#ffffff</item>
         <item name="android:typeface">normal</item>
     </style>
     

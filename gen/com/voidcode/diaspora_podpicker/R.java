@@ -36,18 +36,19 @@ containing a value of this type.
         public static final int compose=0x7f020001;
         public static final int contacts=0x7f020002;
         public static final int conversations=0x7f020003;
-        public static final int howto_configluncher=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int ic_menu_preferences=0x7f020006;
-        public static final int my_activity=0x7f020007;
-        public static final int notifications_grey=0x7f020008;
-        public static final int picker=0x7f020009;
-        public static final int search=0x7f02000a;
-        public static final int stream=0x7f02000b;
-        public static final int topmenu=0x7f02000c;
-        public static final int topmenu_repeat=0x7f02000d;
-        public static final int widget_bg=0x7f02000e;
-        public static final int widget_bg1=0x7f02000f;
+        public static final int diasporalogo=0x7f020004;
+        public static final int howto_configluncher=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int ic_menu_preferences=0x7f020007;
+        public static final int my_activity=0x7f020008;
+        public static final int notifications_grey=0x7f020009;
+        public static final int picker=0x7f02000a;
+        public static final int search=0x7f02000b;
+        public static final int stream=0x7f02000c;
+        public static final int topmenu=0x7f02000d;
+        public static final int topmenu_repeat=0x7f02000e;
+        public static final int widget_bg=0x7f02000f;
+        public static final int widget_bg1=0x7f020010;
     }
     public static final class id {
         public static final int BANNER=0x7f050000;
@@ -69,20 +70,23 @@ containing a value of this type.
         public static final int TextView07=0x7f050020;
         public static final int TextView08=0x7f050025;
         public static final int TextView09=0x7f050023;
-        public static final int editText_currentpod=0x7f05002c;
+        public static final int adview=0x7f050032;
+        public static final int editText_currentpod=0x7f05002e;
         public static final int imageView1=0x7f050008;
+        public static final int infodialog_btn_close=0x7f05002c;
         public static final int linearLayout1=0x7f050028;
-        public static final int listView_poduptime=0x7f050031;
-        public static final int ll_joblist_admob=0x7f05002f;
-        public static final int menu_settings_configluncher=0x7f050032;
-        public static final int menu_settings_onlyhttpspods=0x7f050033;
+        public static final int listView_poduptime=0x7f050034;
+        public static final int ll_joblist_admob=0x7f050031;
+        public static final int menu_settings_configluncher=0x7f050035;
+        public static final int menu_settings_onlyhttpspods=0x7f050036;
         public static final int scrollView1=0x7f050004;
-        public static final int settings_set_currentpod=0x7f05002e;
+        public static final int settings_set_currentpod=0x7f050030;
+        public static final int tableRow1=0x7f05002b;
         public static final int tableRow2=0x7f050007;
         public static final int tableRow3=0x7f050005;
-        public static final int tableRow4=0x7f05002b;
-        public static final int tableRow5=0x7f050030;
-        public static final int tableRow6=0x7f05002d;
+        public static final int tableRow4=0x7f05002d;
+        public static final int tableRow5=0x7f050033;
+        public static final int tableRow6=0x7f05002f;
         public static final int tableRowActivityContext=0x7f050010;
         public static final int tableRowActivityTitle=0x7f05000e;
         public static final int tableRowConversationsContext=0x7f05001a;
@@ -106,7 +110,8 @@ containing a value of this type.
     public static final class layout {
         public static final int configluncher_dialog=0x7f030000;
         public static final int dpp_widget=0x7f030001;
-        public static final int podsettings=0x7f030002;
+        public static final int info_dialog=0x7f030002;
+        public static final int podsettings=0x7f030003;
     }
     public static final class menu {
         public static final int activity_podsettings=0x7f080000;
@@ -114,6 +119,8 @@ containing a value of this type.
     public static final class string {
         public static final int app_name=0x7f060000;
         public static final int color_white=0x7f06000d;
+        public static final int infodialog_text=0x7f060008;
+        public static final int infodialog_title=0x7f060007;
         public static final int main_btn_setpod_title=0x7f060003;
         public static final int main_title=0x7f060004;
         public static final int menu_settings_configluncher=0x7f06000b;
@@ -121,8 +128,6 @@ containing a value of this type.
         public static final int podpicker_h1=0x7f060001;
         public static final int podsettings_button_close=0x7f06000a;
         public static final int podsettings_button_save=0x7f060009;
-        public static final int podsettings_dialog_text=0x7f060008;
-        public static final int podsettings_dialog_title=0x7f060007;
         public static final int podsettings_h1=0x7f060005;
         public static final int podsettings_text_currentpod=0x7f060006;
         public static final int podspicker_text_currentpod=0x7f060002;
@@ -148,9 +153,12 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
-        /**  curstom dialog theme 
+        /**  config-luncher dialog theme 
          */
-        public static final int InfoDialog=0x7f070002;
+        public static final int ConfigLuncherDialog=0x7f070002;
+        /**  info dialog theme 
+         */
+        public static final int InfoDialog=0x7f070003;
     }
     public static final class xml {
         public static final int widget_provider=0x7f040000;
